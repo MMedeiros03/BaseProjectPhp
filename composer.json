@@ -1,0 +1,25 @@
+{
+    "name": "nbwdigital/baseproject",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Nbwdigital\\BaseProject\\": "src/"
+            
+        }
+    },
+    "authors": [
+        {
+            "name": "NBW Digital"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5",
+        "guzzlehttp/guzzle": "^7.4",
+        "symfony/finder": "^6.1",
+        "doctrine/orm": "^2.13",
+        "symfony/cache": "^6.2",
+        "doctrine/annotations": "^1.14",
+        "doctrine/dbal": "^3.5"
+    }
+}
