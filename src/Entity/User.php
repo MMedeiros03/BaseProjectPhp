@@ -3,8 +3,7 @@
 namespace Nbwdigital\BaseProject\Entity;
 
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\DBAL\Types\Types;
+
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -13,55 +12,54 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
-#[Table('teste')]
-class Teste
+#[Table('user')]
+class User
 {
     #[Id]
     #[Column, GeneratedValue]
     private int $id;
 
-    #[Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private float $amount;
+    #[Column(name:'name')]
+    private string $name;
 
-    #[Column(name: 'invoice_number')]
-    private string $invoiceNumber;
+    #[Column(name: 'cnpj')]
+    private string $cnpj;
 
-    #[Column]
+    #[Column(name:'status')]
     private string $status;
 
     #[Column(name: 'created_at')]
     private \DateTime $createdAt;
 
-    public function __construct()
-    {
-        $this->items = new ArrayCollection();
-    }
+    #[Column(name: 'login',unique: true)]
+    private string $login;
+
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getAmount(): float
+    public function getName()
     {
-        return $this->amount;
+        return $this->name;
     }
 
-    public function setAmount(float $amount)
+    public function setName(string $name)
     {
-        $this->amount = $amount;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getInvoiceNumber(): string
+    public function getCnpj()
     {
-        return $this->invoiceNumber;
+        return $this->cnpj;
     }
 
-    public function setInvoiceNumber(string $invoiceNumber)
+    public function setCnpj(string $cnpj)
     {
-        $this->invoiceNumber = $invoiceNumber;
+        $this->cnpj = $cnpj;
 
         return $this;
     }
@@ -86,6 +84,18 @@ class Teste
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getLogin()
+    {
+        return $this->login;
+    }
+
+    public function setLogin(string $login)
+    {
+        $this->login = $login;
 
         return $this;
     }

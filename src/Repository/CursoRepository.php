@@ -1,30 +1,21 @@
 <?php
 
-use Doctrine\DBAL\DriverManager;
+namespace Nbwdigital\BaseProject\Repository;
 
+use Nbwdigital\BaseProject\Infra\EntityManagerFactory;
 
-class CursoRepository{
+class CursoRepository
+{
 
-    public function getAll(){
-
-        $connectionParams = [
-            'dbname' => 'projetobasephp',
-            'user' => 'root',
-            'password' => 'Ma_23080903',
-            'host' => 'localhost',
-            'driver' => 'pdo_mysql'
-        ];
-
-        $connection = DriverManager::getConnection($connectionParams);
-
+    public function getAll()
+    {
+        $connection = new EntityManagerFactory();
+        $connection = $connection->GetConnectionDb();
 
         $builder = $connection->createQueryBuilder();
-        $builder->select("*")
-                ->from('curso')
-                ->where('id > 1')
-                ->fetchAllAssociative();
-        var_dump($builder);
-
+        $result = $builder->select("*")
+            ->from('user')
+            ->fetchAllAssociative();
+        return $result;
     }
-
 }

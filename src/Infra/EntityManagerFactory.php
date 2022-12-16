@@ -3,7 +3,7 @@
 namespace Nbwdigital\BaseProject\Infra;
 
 use Doctrine\ORM\EntityManager;
-
+use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\ORMSetup;
 use Exception;
 use Nbwdigital\BaseProject\Traits\Utils;
@@ -13,7 +13,15 @@ class EntityManagerFactory
 {
 
     use Utils;
-    
+
+    private $connectionParams = [
+        'dbname' => 'projetobasephp',
+        'user' => 'root',
+        'password' => 'Ma_23080903',
+        'host' => 'localhost',
+        'driver' => 'pdo_mysql',
+    ];
+
     /**
      * @throws \Doctrine\ORM\ORMException
      */
@@ -26,14 +34,18 @@ class EntityManagerFactory
                 true // modo Desenvolvimento
             );
 
-            $connectionParams = [
-                'dbname' => 'projetobasephp',
-                'user' => 'root',
-                'password' => 'Ma_23080903',
-                'host' => 'localhost',
-                'driver' => 'pdo_mysql',
-            ];
-            return EntityManager::create($connectionParams, $config);
+            return EntityManager::create($this->connectionParams, $config);
+        } catch (Exception $e) {
+            $this->writeToLog($e->getMessage(), "URL - ERROR");
+            return false;
+        }
+    }
+
+    public function GetConnectionDb()
+    {
+        try {
+            $connection = DriverManager::getConnection($this->connectionParams);
+            return $connection;
 
         } catch (Exception $e) {
             $this->writeToLog($e->getMessage(), "URL - ERROR");
