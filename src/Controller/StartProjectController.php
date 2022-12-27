@@ -31,19 +31,27 @@ class StartProjectController
         try {
             $databases = $schemaManager->listDatabases();
 
-            if (!array_search(strtolower($_ENV['PROJECT_NAME']), $databases)) {
+            if (!in_array(strtolower($_ENV['PROJECT_NAME']), $databases)) {
                 $schemaManager->createDatabase($_ENV['PROJECT_NAME']);
 
                 $entityManager = $entityManagerFactory->getEntityManager(true);
+
+                $entities = $this->getNameAllClass();
 
                 $tool = new SchemaTool($entityManager);
                 $metadataFactory = $entityManager->getMetadataFactory();
                 $entities = $metadataFactory->getAllMetadata();
                 $tool->createSchema($entities);
+            }else{
+                $response->getBody()->write("banco ja existe");
+                return $response;
             }
         } catch (Exception $e) {
-            echo "ixi";
+            $response->getBody()->write("ocorreu um erro");
+            return $response;
         }
+        $response->getBody()->write("banco criado com sucesso");
+        return $response;
     }
 
 
