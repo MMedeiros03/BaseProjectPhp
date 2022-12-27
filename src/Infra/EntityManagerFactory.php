@@ -14,19 +14,19 @@ class EntityManagerFactory
 
     use Utils;
 
-    private $connectionParams = [
-        'dbname' => 'projetobasephp',
-        'user' => 'root',
-        'password' => 'Ma_23080903',
-        'host' => 'localhost',
-        'driver' => 'pdo_mysql',
-    ];
-
     /**
      * @throws \Doctrine\ORM\ORMException
      */
-    public function getEntityManager()
+    public function getEntityManager(bool $flag = false)
     {
+        $connectionParams = [
+            "dbname" => $flag ? $_ENV["PROJECT_NAME"] : $_ENV["PROJECT_NAME_INITIAL"],
+            "user" => $_ENV["DB_USER"],
+            "password" => $_ENV["DB_PASSWORD"],
+            "host" => $_ENV["DB_HOST"],
+            'driver' => $_ENV["DB_DRIVER"]
+        ];
+
         try {
             $path = getcwd();
             $config = ORMSetup::createAttributeMetadataConfiguration(
@@ -34,7 +34,7 @@ class EntityManagerFactory
                 true // modo Desenvolvimento
             );
 
-            return EntityManager::create($this->connectionParams, $config);
+            return EntityManager::create($connectionParams, $config);
         } catch (Exception $e) {
             $this->writeToLog($e->getMessage(), "URL - ERROR");
             return false;
@@ -43,10 +43,18 @@ class EntityManagerFactory
 
     public function GetConnectionDb()
     {
-        try {
-            $connection = DriverManager::getConnection($this->connectionParams);
-            return $connection;
 
+        $connectionParams = [
+            'dbname' => $_ENV["PROJECT_NAME_INITIAL"],
+            "user" => $_ENV["DB_USER"],
+            "password" => $_ENV["DB_PASSWORD"],
+            "host" => $_ENV["DB_HOST"],
+            'driver' => $_ENV["DB_DRIVER"]
+        ];
+
+        try {
+            $connection = DriverManager::getConnection($connectionParams);
+            return $connection;
         } catch (Exception $e) {
             $this->writeToLog($e->getMessage(), "URL - ERROR");
             return false;

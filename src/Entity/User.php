@@ -3,7 +3,6 @@
 namespace Nbwdigital\BaseProject\Entity;
 
 
-
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -13,27 +12,26 @@ use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
 #[Table('user')]
-class User
+class User extends Base
 {
     #[Id]
     #[Column, GeneratedValue]
-    private int $id;
+    public int $id;
 
     #[Column(name:'name')]
-    private string $name;
+    public string $name;
 
     #[Column(name: 'cnpj')]
-    private string $cnpj;
+    public string $cnpj;
 
     #[Column(name:'status')]
-    private string $status;
+    public string $status;
 
     #[Column(name: 'created_at')]
-    private \DateTime $createdAt;
+    public \DateTime $createdAt;
 
     #[Column(name: 'login',unique: true)]
-    private string $login;
-
+    public string $login;
 
     public function getId(): int
     {

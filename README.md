@@ -16,5 +16,3 @@ definidas quando o projeto for iniciado.
 Para que uma entidade possa ser mapeada pelo Doctrine e criada no banco, é necessário  usar as Annotations (verificar na documentação). Pelas annotations é definido o tipo, nome e demais atributos das colunas ou campos no banco.
 
 
-
-##

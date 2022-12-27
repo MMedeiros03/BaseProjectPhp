@@ -5,6 +5,9 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -18,6 +21,6 @@ $app->get('/api', function (Request $request, Response $response) {
     return $response;
 });
 
-$app->get("/startProject", [new Nbwdigital\BaseProject\Controller\StartProjectController, 'StartProject']);
+$app->post("/startProject", [new Nbwdigital\BaseProject\Controller\StartProjectController, 'StartProject']);
 
 $app->run();
