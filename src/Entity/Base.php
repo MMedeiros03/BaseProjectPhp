@@ -3,32 +3,37 @@
 namespace Nbwdigital\BaseProject\Entity;
 
 use DateTime;
-use Doctrine\DBAL\Types\DateType;
+use Doctrine\ORM\Mapping\Embeddable;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\GeneratedValue;
 
+#[Embeddable]
 class Base
 {
+
+    #[Id]
+    #[Column, GeneratedValue]
     public int $id;
 
+    #[Column(name:'createDate', type:'datetime')]
     public DateTime $CreateDate;
 
+    #[Column(name:'userCreate', type:'integer')]
     public int $UserCreate;
 
+    #[Column(name:'updateDate', type:'datetime')]
     public DateTime $UpdateDate;
 
+    #[Column(name:'userUpdate', type:'integer')]
     public int $UserUpdate;
 
+    #[Column(name:'deleteDate', type:'datetime')]
     public DateTime $DeleteDate;
 
+    #[Column(name:'userDelete', type:'integer')]
     public int $UserDelete;
     
-    // ------------------------------------------------------
-    public function GetId(){
-        return $this->id;
-    }
-    public function SetId(int $id){
-        $this->id = $id;
-        return $this;
-    }
 
     // ------------------------------------------------------
     public function GetCreateDate(){

@@ -5,38 +5,28 @@ namespace Nbwdigital\BaseProject\Entity;
 
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-
 use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\OneToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
+
 
 #[Entity]
 #[Table('user')]
 class User extends Base
 {
-    #[Id]
-    #[Column, GeneratedValue]
-    public int $id;
 
     #[Column(name:'name')]
     public string $name;
 
-    #[Column(name: 'cnpj')]
-    public string $cnpj;
-
-    #[Column(name:'status')]
-    public string $status;
-
-    #[Column(name: 'created_at')]
-    public \DateTime $createdAt;
-
     #[Column(name: 'login',unique: true)]
     public string $login;
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
+    #[Column(name:'password')]
+    public string $password;
+
+    #[OneToOne(targetEntity: Role::class)]
+    #[JoinColumn(name: 'roleId', referencedColumnName: 'id')]
+    public int $roleId;
 
     public function getName()
     {
@@ -97,6 +87,4 @@ class User extends Base
 
         return $this;
     }
-
-
 }
