@@ -35,57 +35,136 @@ class Base
     public int $UserDelete;
     
 
-    // ------------------------------------------------------
-    public function GetCreateDate(){
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    // --------------------------------------------------
+
+    /**
+     * Get the value of CreateDate
+     */ 
+    public function getCreateDate()
+    {
         return $this->CreateDate;
     }
-    public function SetCreateDate(DateTime $CreateDate){
+
+    /**
+     * Set the value of CreateDate
+     *
+     * @return  self
+     */ 
+    public function setCreateDate($CreateDate)
+    {
         $this->CreateDate = $CreateDate;
+
         return $this;
     }
 
-    // ------------------------------------------------------
-    public function GetUserCreate(){
-        return $this->UserCreate;
-    }
-    public function SetUserCreate(int $UserCreate){
-        $this->UserCreate = $UserCreate;
-        return $this;
-    }
+    // --------------------------------------------------
 
-    // ------------------------------------------------------
-    public function GetUpdateDate(){
+    /**
+     * Get the value of UpdateDate
+     */ 
+    public function getUpdateDate()
+    {
         return $this->UpdateDate;
     }
-    public function SetUpdateDate(DateTime $UpdateDate){
+
+    /**
+     * Set the value of UpdateDate
+     *
+     * @return  self
+     */ 
+    public function setUpdateDate($UpdateDate)
+    {
         $this->UpdateDate = $UpdateDate;
+
         return $this;
     }
 
-    // ------------------------------------------------------
-    public function GetUserUpdate(){
+    // --------------------------------------------------
+
+    /**
+     * Get the value of UserUpdate
+     */ 
+    public function getUserUpdate()
+    {
         return $this->UserUpdate;
     }
-    public function SetUserUpdate(int $UserUpdate){
+
+    /**
+     * Set the value of UserUpdate
+     *
+     * @return  self
+     */ 
+    public function setUserUpdate($UserUpdate)
+    {
         $this->UserUpdate = $UserUpdate;
+
         return $this;
     }
 
-    // ------------------------------------------------------
-    public function GetDeleteDate(){
+    // --------------------------------------------------
+
+    /**
+     * Get the value of DeleteDate
+     */ 
+    public function getDeleteDate()
+    {
         return $this->DeleteDate;
     }
-    public function SetDeleteDate(DateTime $DeleteDate){
+
+    /**
+     * Set the value of DeleteDate
+     *
+     * @return  self
+     */ 
+    public function setDeleteDate($DeleteDate)
+    {
         $this->DeleteDate = $DeleteDate;
+
         return $this;
     }
 
-    // ------------------------------------------------------
-    public function GetUserDelete(){
+    // --------------------------------------------------
+
+    /**
+     * Get the value of UserDelete
+     */ 
+    public function getUserDelete()
+    {
         return $this->UserDelete;
     }
-    public function SetUserDelete(int $UserDelete){
+
+    /**
+     * Set the value of UserDelete
+     *
+     * @return  self
+     */ 
+    public function setUserDelete($UserDelete)
+    {
         $this->UserDelete = $UserDelete;
+
         return $this;
     }
+
+    // --------------------------------------------------
 }

@@ -28,28 +28,114 @@ class RolePermission  extends Base
     public bool $CanHandle;
    
 
-    public function getName()
+
+    /**
+     * Get the value of roleName
+     */ 
+    public function getRoleName()
     {
-        return $this->name;
+        return $this->roleName;
     }
 
-    public function setName(string $name)
+    /**
+     * Set the value of roleName
+     *
+     * @return  self
+     */ 
+    public function setRoleName($roleName)
     {
-        $this->name = $name;
+        $this->roleName = $roleName;
 
         return $this;
     }
+    // --------------------------------------------------
+    
 
-    public function getDescription()
+    /**
+     * Get the value of resourceId
+     */ 
+    public function getResourceId()
     {
-        return $this->description;
+        return $this->resourceId;
     }
 
-    public function setDescription(string $description)
+    /**
+     * Set the value of resourceId
+     *
+     * @return  self
+     */ 
+    public function setResourceId($resourceId)
     {
-        $this->description = $description;
+        $this->resourceId = $resourceId;
 
         return $this;
     }
+    // --------------------------------------------------
+    
 
+    /**
+     * Get the value of ResourceName
+     */ 
+    public function getResourceName()
+    {
+        return $this->ResourceName;
+    }
+
+    /**
+     * Set the value of ResourceName
+     *
+     * @return  self
+     */ 
+    public function setResourceName($ResourceName)
+    {
+        $this->ResourceName = $ResourceName;
+
+        return $this;
+    }
+    // --------------------------------------------------
+    
+
+    /**
+     * Get the value of CanView
+     */ 
+    public function getCanView()
+    {
+        return $this->CanView;
+    }
+
+    /**
+     * Set the value of CanView
+     *
+     * @return  self
+     */ 
+    public function setCanView($CanView)
+    {
+        $this->CanView = $CanView;
+
+        return $this;
+    }
+    // --------------------------------------------------
+    
+
+    /**
+     * Get the value of CanHandle
+     */ 
+    public function getCanHandle()
+    {
+        return $this->CanHandle;
+    }
+
+    /**
+     * Set the value of CanHandle
+     *
+     * @return  self
+     */ 
+    public function setCanHandle($CanHandle)
+    {
+        $this->CanHandle = $CanHandle;
+
+        return $this;
+    }
+    // --------------------------------------------------
+    
 }

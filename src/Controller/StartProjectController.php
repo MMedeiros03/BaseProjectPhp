@@ -56,44 +56,44 @@ class StartProjectController
 
 
 
-    public function teste(Request $request, Response $response, $args)
-    {
-        try {
-            try {
-                $user = new UserRepository();
-                $user = $user->Save(json_decode($request->getBody(), true));
-                if ($user) {
-                    $response->getBody()->write(json_encode("Usuário criado no banco"));
-                    return $response;
-                } else {
-                    throw new Exception("erro", 404);
-                }
-            } catch (Exception $e) {
-                $entityManagerFactory = new EntityManagerFactory();
-                $entityManager = $entityManagerFactory->getEntityManager();
-                $connection = $entityManagerFactory->GetConnectionDb();
-                $schemaManager = $connection->createSchemaManager();
+    // public function teste(Request $request, Response $response, $args)
+    // {
+    //     try {
+    //         try {
+    //             $user = new UserRepository();
+    //             $user = $user->Save(json_decode($request->getBody(), true));
+    //             if ($user) {
+    //                 $response->getBody()->write(json_encode("Usuï¿½rio criado no banco"));
+    //                 return $response;
+    //             } else {
+    //                 throw new Exception("erro", 404);
+    //             }
+    //         } catch (Exception $e) {
+    //             $entityManagerFactory = new EntityManagerFactory();
+    //             $entityManager = $entityManagerFactory->getEntityManager();
+    //             $connection = $entityManagerFactory->GetConnectionDb();
+    //             $schemaManager = $connection->createSchemaManager();
 
-                $entities = $this->getNameAllClass();
+    //             $entities = $this->getNameAllClass();
 
-                foreach ($entities as $entity) {
-                    if ($schemaManager->tablesExist($entity)) {
-                        $response->getBody()->write("tabelas ja existem no banco");
-                        continue;
-                    } else {
-                        $tool = new SchemaTool($entityManager);
-                        $classes = [
-                            $entityManager->getClassMetadata((string) get_class(new User()))
-                        ];
-                        $tool->createSchema($classes);
-                        $response->getBody()->write("tabela criada no banco de dados");
-                        return $response;
-                    }
-                }
-            }
-        } catch (Exception $e) {
-            $this->writeToLog($e->getMessage(), "URL - ERROR");
-            return $response->getBody()->write("erro fudido");
-        }
-    }
+    //             foreach ($entities as $entity) {
+    //                 if ($schemaManager->tablesExist($entity)) {
+    //                     $response->getBody()->write("tabelas ja existem no banco");
+    //                     continue;
+    //                 } else {
+    //                     $tool = new SchemaTool($entityManager);
+    //                     $classes = [
+    //                         $entityManager->getClassMetadata((string) get_class(new User()))
+    //                     ];
+    //                     $tool->createSchema($classes);
+    //                     $response->getBody()->write("tabela criada no banco de dados");
+    //                     return $response;
+    //                 }
+    //             }
+    //         }
+    //     } catch (Exception $e) {
+    //         $this->writeToLog($e->getMessage(), "URL - ERROR");
+    //         return $response->getBody()->write("erro fudido");
+    //     }
+    // }
 }

@@ -28,63 +28,92 @@ class User extends Base
     #[JoinColumn(name: 'roleId', referencedColumnName: 'id')]
     public int $roleId;
 
+    
+    /**
+     * Get the value of name
+     */ 
     public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name)
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getCnpj()
-    {
-        return $this->cnpj;
-    }
+    // -------------------------------------------------------
 
-    public function setCnpj(string $cnpj)
-    {
-        $this->cnpj = $cnpj;
-
-        return $this;
-    }
-
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
+    /**
+     * Get the value of login
+     */ 
     public function getLogin()
     {
         return $this->login;
     }
 
-    public function setLogin(string $login)
+    /**
+     * Set the value of login
+     *
+     * @return  self
+     */ 
+    public function setLogin($login)
     {
         $this->login = $login;
 
         return $this;
     }
+
+    // -------------------------------------------------------
+
+    /**
+     * Get the value of password
+     */ 
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set the value of password
+     *
+     * @return  self
+     */ 
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    // -------------------------------------------------------
+
+    /**
+     * Get the value of roleId
+     */ 
+    public function getRoleId()
+    {
+        return $this->roleId;
+    }
+
+    /**
+     * Set the value of roleId
+     *
+     * @return  self
+     */ 
+    public function setRoleId($roleId)
+    {
+        $this->roleId = $roleId;
+
+        return $this;
+    }
+
+    // -------------------------------------------------------
 }

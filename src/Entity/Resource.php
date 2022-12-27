@@ -21,30 +21,67 @@ class Resource extends Base
     #[Column(name:'description')]
     public string $Description;
     
-   
 
-    public function getName()
+    /**
+     * Get the value of roleName
+     */ 
+    public function getRoleName()
     {
-        return $this->name;
+        return $this->roleName;
     }
 
-    public function setName(string $name)
+    /**
+     * Set the value of roleName
+     *
+     * @return  self
+     */ 
+    public function setRoleName($roleName)
     {
-        $this->name = $name;
+        $this->roleName = $roleName;
 
         return $this;
     }
+    //---------------------------------------------------
 
+    /**
+     * Get the value of Label
+     */ 
+    public function getLabel()
+    {
+        return $this->Label;
+    }
+
+    /**
+     * Set the value of Label
+     *
+     * @return  self
+     */ 
+    public function setLabel($Label)
+    {
+        $this->Label = $Label;
+
+        return $this;
+    }
+    //---------------------------------------------------
+
+    /**
+     * Get the value of Description
+     */ 
     public function getDescription()
     {
-        return $this->description;
+        return $this->Description;
     }
 
-    public function setDescription(string $description)
+    /**
+     * Set the value of Description
+     *
+     * @return  self
+     */ 
+    public function setDescription($Description)
     {
-        $this->description = $description;
+        $this->Description = $Description;
 
         return $this;
     }
-
+    //---------------------------------------------------
 }

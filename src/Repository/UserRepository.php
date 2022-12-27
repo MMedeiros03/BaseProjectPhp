@@ -28,11 +28,7 @@ class UserRepository
             $entityManager  = $connection->getEntityManager();
 
             $entity = new User();
-            $entity->setCnpj('13425212931');
-            $entity->setName('Matheus Medeiros');
-            $entity->setStatus("ativo");
-            $entity->setCreatedAt(new \DateTime());
-            $entity->setLogin("MMedeiros03");
+            $entity->setId();
             
             $entityManager->persist($entity);
             $entityManager->flush();

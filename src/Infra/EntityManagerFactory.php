@@ -45,7 +45,7 @@ class EntityManagerFactory
     {
 
         $connectionParams = [
-            'dbname' => $_ENV["PROJECT_NAME_INITIAL"],
+            'dbname' => $_ENV["PROJECT_NAME"],
             "user" => $_ENV["DB_USER"],
             "password" => $_ENV["DB_PASSWORD"],
             "host" => $_ENV["DB_HOST"],

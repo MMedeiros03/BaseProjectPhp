@@ -23,4 +23,10 @@ $app->get('/api', function (Request $request, Response $response) {
 
 $app->post("/startProject", [new Nbwdigital\BaseProject\Controller\StartProjectController, 'StartProject']);
 
+$app->get("/user", [new Nbwdigital\BaseProject\Controller\UserController, 'GetAllUsers']);
+
+
+
+
+
 $app->run();

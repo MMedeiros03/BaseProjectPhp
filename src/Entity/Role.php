@@ -18,29 +18,43 @@ class Role extends Base
     #[Column(name: 'description')]
     public string $description;
 
-   
+    /**
+     * Get the value of name
+     */ 
     public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name)
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
     {
         $this->name = $name;
 
         return $this;
     }
 
+    /**
+     * Get the value of description
+     */ 
     public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDescription(string $description)
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription($description)
     {
         $this->description = $description;
 
         return $this;
     }
-
 }
