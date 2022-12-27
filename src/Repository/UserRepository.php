@@ -29,6 +29,11 @@ class UserRepository
 
             $entity = new User();
             $entity->setId();
+            $entity->setName();
+            $entity->setLogin();
+            $entity->setPassword();
+            $entity->setCreateDate();
+            $entity->setUserCreate();
             
             $entityManager->persist($entity);
             $entityManager->flush();

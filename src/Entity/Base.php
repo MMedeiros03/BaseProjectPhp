@@ -81,6 +81,26 @@ class Base
     // --------------------------------------------------
 
     /**
+     * Get the value of UserCreate
+     */ 
+    public function getUserCreate()
+    {
+        return $this->UserCreate;
+    }
+
+    /**
+     * Set the value of UserCreate
+     *
+     * @return  self
+     */ 
+    public function setUserCreate($UserCreate)
+    {
+        $this->UserCreate = $UserCreate;
+
+        return $this;
+    }
+
+    /**
      * Get the value of UpdateDate
      */ 
     public function getUpdateDate()
