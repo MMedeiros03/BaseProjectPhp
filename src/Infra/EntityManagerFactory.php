@@ -41,11 +41,11 @@ class EntityManagerFactory
         }
     }
 
-    public function GetConnectionDb()
+    public function GetConnectionDb(bool $flag = false)
     {
 
         $connectionParams = [
-            'dbname' => $_ENV["PROJECT_NAME"],
+            'dbname' => $flag ? $_ENV["PROJECT_NAME"] : $_ENV["PROJECT_NAME_INITIAL"],
             "user" => $_ENV["DB_USER"],
             "password" => $_ENV["DB_PASSWORD"],
             "host" => $_ENV["DB_HOST"],

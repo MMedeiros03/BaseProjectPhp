@@ -5,33 +5,33 @@ namespace Nbwdigital\BaseProject\Controller;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Nbwdigital\BaseProject\Repository\UserRepository;
+use Nbwdigital\BaseProject\Repository\ResourceRepository;
 use Nbwdigital\BaseProject\Traits\Utils;
 
 
-class UserController
+class ResourceController
 {
     use Utils;
 
-    public function GetAllUsers(Request $request, Response $response, $args)
+    public function GetAllResource(Request $request, Response $response, $args)
     {
-        $user = new UserRepository();
+        $roles = new ResourceRepository();
 
-        $result =  $user->GetAll();
+        $result =  $roles->GetAll();
         $resultJson = json_encode($result);
         if ($result) {
             $response->getBody()->write($resultJson);
             header('Content-type: application/json');
             return $response;
         } else {
-            $response->getBody()->write("sem usu·rios cadastrados");
+            $response->getBody()->write("sem profissıes cadastradas");
             return $response;
         }
     }
 
-    public function SaveUser(Request $request, Response $response, $args)
+    public function SaveResource(Request $request, Response $response, $args)
     {
-        $user = new UserRepository();
+        $user = new ResourceRepository();
 
         $result =  $user->Save();
         $resultJson = json_encode($result);
@@ -40,14 +40,14 @@ class UserController
             header('Content-type: application/json');
             return $response;
         } else {
-            $response->getBody()->write("usuario inexistente");
+            $response->getBody()->write("profiss„o n„o cadastrada");
             return $response;
         }
     }
 
-    public function GetUser(Request $request, Response $response, $args)
+    public function GetResource(Request $request, Response $response, $args)
     {
-        $user = new UserRepository();
+        $user = new ResourceRepository();
         $result =  $user->GetById($args['id']);
         $resultJson = json_encode($result);
         if ($result) {
@@ -60,19 +60,19 @@ class UserController
         }
     }
 
-    public function DeleteUser(Request $request, Response $response, $args)
-    {
-        // $validateAuthentication = $this->GenerateJWT($request->getHeader());
-        $user = new UserRepository();
-        $result =  $user->Delete($args['id']);
-        if ($result) {
-            $response->getBody()->write("usuario deletado");
-            return $response;
-        } else {
-            $response->getBody()->write("usuario n√£o existe");
-            return $response;
-        }
-    }
+    // public function DeleteUser(Request $request, Response $response, $args)
+    // {
+    //     // $validateAuthentication = $this->GenerateJWT($request->getHeader());
+    //     $user = new UserRepository();
+    //     $result =  $user->Delete($args['id']);
+    //     if ($result) {
+    //         $response->getBody()->write("usuario deletado");
+    //         return $response;
+    //     } else {
+    //         $response->getBody()->write("usuario n√£o existe");
+    //         return $response;
+    //     }
+    // }
 
     // public function CreateUser(Request $request, Response $response, $args)
     // {

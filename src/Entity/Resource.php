@@ -13,7 +13,7 @@ class Resource extends Base
 {
 
     #[Column(name:'name')]
-    public string $roleName;
+    public string $Name;
 
     #[Column(name: 'label')]
     public string $Label;
@@ -23,21 +23,21 @@ class Resource extends Base
     
 
     /**
-     * Get the value of roleName
+     * Get the value of Name
      */ 
-    public function getRoleName()
+    public function getName()
     {
-        return $this->roleName;
+        return $this->Name;
     }
 
     /**
-     * Set the value of roleName
+     * Set the value of Name
      *
      * @return  self
      */ 
-    public function setRoleName($roleName)
+    public function setName($Name)
     {
-        $this->roleName = $roleName;
+        $this->Name = $Name;
 
         return $this;
     }

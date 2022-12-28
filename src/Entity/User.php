@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
 
-
 #[Entity]
 #[Table('user')]
 class User extends Base

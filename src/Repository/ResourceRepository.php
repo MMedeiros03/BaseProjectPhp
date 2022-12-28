@@ -1,13 +1,15 @@
 <?php
 
+
 namespace Nbwdigital\BaseProject\Repository;
 
 use DateTime;
 use Exception;
+use Nbwdigital\BaseProject\Entity\Resource;
 use Nbwdigital\BaseProject\Infra\EntityManagerFactory;
 use Nbwdigital\BaseProject\Entity\User;
 
-class UserRepository
+class ResourceRepository
 {
 
     public function getAll()
@@ -17,7 +19,7 @@ class UserRepository
 
         $builder = $connection->createQueryBuilder();
         $result = $builder->select("*")
-            ->from('user')
+            ->from('resource')
             ->fetchAllAssociative();
         return $result;
     }
@@ -28,11 +30,10 @@ class UserRepository
             $connection = new EntityManagerFactory();
             $entityManager  = $connection->getEntityManager(true);
 
-            $entity = new User();
-            $entity->setId(1);
-            $entity->setName('Matheus');
-            $entity->setLogin('matheus');
-            $entity->setPassword('23080903');
+            $entity = new Resource();
+            $entity->setName('Developer');
+            $entity->setLabel('sla porra');
+            $entity->setDescription('sla porra 2');
             $entity->setCreateDate(new DateTime('now'));
             $entity->setUserCreate(0);
 
@@ -52,30 +53,30 @@ class UserRepository
 
         $builder = $connection->createQueryBuilder();
         $result = $builder->select("*")
-            ->from('user')
+            ->from('resource')
             ->where("id = {$id}")
             ->fetchAllAssociative();
         return $result;
     }
 
-    public function Delete(int $id)
-    {
-        $connection = new EntityManagerFactory();
-        $entityManager  = $connection->getEntityManager(true);
-        $connection = $connection->GetConnectionDb(true);
+    // public function Delete(int $id)
+    // {
+    //     $connection = new EntityManagerFactory();
+    //     $entityManager  = $connection->getEntityManager(true);
+    //     $connection = $connection->GetConnectionDb(true);
 
-        $entity = $entityManager->getRepository(User::class)->find($id);
-        if (!$entity) {
-            throw new Exception('No entity found for id ' . $id, 404);
-        } else {
+    //     $entity = $entityManager->getRepository(User::class)->find($id);
+    //     if (!$entity) {
+    //         throw new Exception('No entity found for id ' . $id, 404);
+    //     } else {
 
-            $entity = new User();
+    //         $entity = new User();
 
-            $entity->setDeleteDate(new DateTime('now'));
-            $entity->setUserDelete(0);
+    //         $entity->setDeleteDate(new DateTime('now'));
+    //         $entity->setUserDelete(0);
 
-            $entityManager->persist($entity);
-            $entityManager->flush();
-        }
-    }
+    //         $entityManager->persist($entity);
+    //         $entityManager->flush();
+    //     }
+    // }
 }

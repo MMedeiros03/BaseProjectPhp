@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping\Table;
 class RolePermission  extends Base
 {
 
+    #[Column(name:'roleId')]
+    public string $roleId;
+
     #[Column(name:'roleName')]
     public string $roleName;
 
@@ -138,4 +141,24 @@ class RolePermission  extends Base
     }
     // --------------------------------------------------
     
+
+    /**
+     * Get the value of roleId
+     */ 
+    public function getRoleId()
+    {
+        return $this->roleId;
+    }
+
+    /**
+     * Set the value of roleId
+     *
+     * @return  self
+     */ 
+    public function setRoleId($roleId)
+    {
+        $this->roleId = $roleId;
+
+        return $this;
+    }
 }

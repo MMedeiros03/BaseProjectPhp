@@ -22,16 +22,16 @@ class Base
     #[Column(name:'userCreate', type:'integer')]
     public int $UserCreate;
 
-    #[Column(name:'updateDate', type:'datetime')]
+    #[Column(name:'updateDate', type:'datetime', nullable:true)]
     public DateTime $UpdateDate;
 
-    #[Column(name:'userUpdate', type:'integer')]
+    #[Column(name:'userUpdate', type:'integer', nullable:true)]
     public int $UserUpdate;
 
-    #[Column(name:'deleteDate', type:'datetime')]
+    #[Column(name:'deleteDate', type:'datetime', nullable:true)]
     public DateTime $DeleteDate;
 
-    #[Column(name:'userDelete', type:'integer')]
+    #[Column(name:'userDelete', type:'integer', nullable:true)]
     public int $UserDelete;
     
 

@@ -46,6 +46,7 @@ class StartProjectController
                 $response->getBody()->write("banco ja existe");
                 return $response;
             }
+
         } catch (Exception $e) {
             $response->getBody()->write("ocorreu um erro");
             return $response;
