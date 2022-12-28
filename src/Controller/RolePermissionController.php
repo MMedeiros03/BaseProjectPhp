@@ -60,32 +60,31 @@ class RolePermissionController
         }
     }
 
-    // public function DeleteUser(Request $request, Response $response, $args)
-    // {
-    //     // $validateAuthentication = $this->GenerateJWT($request->getHeader());
-    //     $user = new UserRepository();
-    //     $result =  $user->Delete($args['id']);
-    //     if ($result) {
-    //         $response->getBody()->write("usuario deletado");
-    //         return $response;
-    //     } else {
-    //         $response->getBody()->write("usuario não existe");
-    //         return $response;
-    //     }
-    // }
+    public function DeleteRolePermission(Request $request, Response $response, $args)
+    {
+        // $validateAuthentication = $this->GenerateJWT($request->getHeader());
+        $user = new RolePermissionRepository();
+        $result =  $user->Delete($args['id']);
+        if ($result) {
+            $response->getBody()->write("usuario deletado");
+            return $response;
+        } else {
+            $response->getBody()->write("usuario n�o existe");
+            return $response;
+        }
+    }
 
-    // public function CreateUser(Request $request, Response $response, $args)
-    // {
-    //     $user = new UserRepository();
-    //     $data = json_decode($request->getBody(), true);
-    //     $result =  $user->Add($data);
-
-    //     if ($result) {
-    //         $response->getBody()->write("usuario criado");
-    //         return $response;
-    //     } else {
-    //         $response->getBody()->write("usuario não cadastado");
-    //         return $response;
-    //     }
-    // }
+    public function UpdateRolePermission(Request $request, Response $response, $args)
+    {
+        $user = new RolePermissionRepository();
+        // $data = json_decode($request->getBody(), true);
+        $result = $user->Update($args['id']);
+        if ($result) {
+            $response->getBody()->write("usuario criado");
+            return $response;
+        } else {
+            $response->getBody()->write("usuario não cadastado");
+            return $response;
+        }
+    }
 }

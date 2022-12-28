@@ -33,28 +33,28 @@ $app->get("/users", [new Nbwdigital\BaseProject\Controller\UserController, 'GetA
 $app->post("/user/save", [new Nbwdigital\BaseProject\Controller\UserController, 'SaveUser']);
 $app->get("/user/{id}", [new Nbwdigital\BaseProject\Controller\UserController, 'GetUser']);
 $app->delete("/user/delete/{id}", [new Nbwdigital\BaseProject\Controller\UserController, 'DeleteUser']);
-
+$app->put("/user/update/{id}", [new Nbwdigital\BaseProject\Controller\UserController, 'UpdateUser']);
 
 // Role
 $app->get("/roles", [new Nbwdigital\BaseProject\Controller\RoleController, 'GetAllRoles']);
 $app->post("/role/save", [new Nbwdigital\BaseProject\Controller\RoleController, 'SaveRole']);
 $app->get("/role/{id}", [new Nbwdigital\BaseProject\Controller\RoleController, 'GetRole']);
-$app->delete("/role/delete/{id}", [new Nbwdigital\BaseProject\Controller\RoleController, 'DeleteUser']);
-
+$app->delete("/role/delete/{id}", [new Nbwdigital\BaseProject\Controller\RoleController, 'DeleteRole']);
+$app->put("/role/update/{id}", [new Nbwdigital\BaseProject\Controller\RoleController, 'UpdateRole']);
 
 // Role Permission
 $app->get("/rolePermissions", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'GetAllRolePermissions']);
 $app->post("/rolePermission/save", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'SaveRolePermission']);
 $app->get("/rolePermission/{id}", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'GetRolePermission']);
-$app->delete("/rolePermission/delete/{id}", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'DeleteUser']);
-
+$app->delete("/rolePermission/delete/{id}", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'DeleteRolePermission']);
+$app->put("/rolePermission/update/{id}", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'UpdateRolePermission']);
 
 // Resource
 $app->get("/resources", [new Nbwdigital\BaseProject\Controller\ResourceController, 'GetAllResource']);
 $app->post("/resource/save", [new Nbwdigital\BaseProject\Controller\ResourceController, 'SaveResource']);
 $app->get("/resource/{id}", [new Nbwdigital\BaseProject\Controller\ResourceController, 'GetResource']);
-$app->delete("/resource/delete/{id}", [new Nbwdigital\BaseProject\Controller\ResourceController, 'DeleteUser']);
-
+$app->delete("/resource/delete/{id}", [new Nbwdigital\BaseProject\Controller\ResourceController, 'DeleteResource']);
+$app->put("/resource/update/{id}", [new Nbwdigital\BaseProject\Controller\ResourceController, 'UpdateResource']);
 
 
 

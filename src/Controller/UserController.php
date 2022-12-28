@@ -69,23 +69,22 @@ class UserController
             $response->getBody()->write("usuario deletado");
             return $response;
         } else {
-            $response->getBody()->write("usuario não existe");
+            $response->getBody()->write("usuario n�o existe");
             return $response;
         }
     }
 
-    // public function CreateUser(Request $request, Response $response, $args)
-    // {
-    //     $user = new UserRepository();
-    //     $data = json_decode($request->getBody(), true);
-    //     $result =  $user->Add($data);
-
-    //     if ($result) {
-    //         $response->getBody()->write("usuario criado");
-    //         return $response;
-    //     } else {
-    //         $response->getBody()->write("usuario não cadastado");
-    //         return $response;
-    //     }
-    // }
+    public function UpdateUser(Request $request, Response $response, $args)
+    {
+        $user = new UserRepository();
+        // $data = json_decode($request->getBody(), true);
+        $result = $user->Update($args['id']);
+        if ($result) {
+            $response->getBody()->write("usuario criado");
+            return $response;
+        } else {
+            $response->getBody()->write("usuario não cadastado");
+            return $response;
+        }
+    }
 }

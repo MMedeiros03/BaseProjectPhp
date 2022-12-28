@@ -59,24 +59,36 @@ class ResourceRepository
         return $result;
     }
 
-    // public function Delete(int $id)
-    // {
-    //     $connection = new EntityManagerFactory();
-    //     $entityManager  = $connection->getEntityManager(true);
-    //     $connection = $connection->GetConnectionDb(true);
+    public function Delete(int $id)
+    {
+        $connection = new EntityManagerFactory();
+        $entityManager  = $connection->getEntityManager(true);
+        $entity = $entityManager->getRepository(Resource::class)->find($id);
+        if (!$entity) {
+            throw new Exception('No entity found for id ' . $id, 404);
+        } else {
+            $entity->setDeleteDate(new DateTime('now'));
+            $entity->setUserDelete(5);
+            $entityManager->persist($entity);
+            $entityManager->flush();
+        }
+    }
 
-    //     $entity = $entityManager->getRepository(User::class)->find($id);
-    //     if (!$entity) {
-    //         throw new Exception('No entity found for id ' . $id, 404);
-    //     } else {
-
-    //         $entity = new User();
-
-    //         $entity->setDeleteDate(new DateTime('now'));
-    //         $entity->setUserDelete(0);
-
-    //         $entityManager->persist($entity);
-    //         $entityManager->flush();
-    //     }
-    // }
+    public function Update(int $id)
+    {
+        $connection = new EntityManagerFactory();
+        $entityManager  = $connection->getEntityManager(true);
+        $entity = $entityManager->getRepository(Resource::class)->find($id);
+        if (!$entity) {
+            throw new Exception('No entity found for id ' . $id, 404);
+        } else {
+            $entity->setName('Developer');
+            $entity->setLabel('sla porra');
+            $entity->setDescription('sla porra 2');
+            $entity->setUpdateDate(new DateTime('now'));
+            $entity->setUserUpdate(0);
+            $entityManager->persist($entity);
+            $entityManager->flush();
+        }
+    }
 }
