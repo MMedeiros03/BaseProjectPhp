@@ -32,8 +32,8 @@ class ResourceController
     public function SaveResource(Request $request, Response $response, $args)
     {
         $user = new ResourceRepository();
-
-        $result =  $user->Save();
+        $data = json_decode($request->getBody(), true);
+        $result =  $user->Save($data);
         $resultJson = json_encode($result);
         if ($result) {
             $response->getBody()->write($resultJson);

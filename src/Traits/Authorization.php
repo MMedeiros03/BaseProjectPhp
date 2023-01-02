@@ -23,11 +23,6 @@ trait Authorization
 
         $jwt = Jwt::encode($payload, $key, 'HS256');
         return $jwt;
-        // $decoded = JWT::decode($jwt, new Key($key, 'HS256'));
-
-        // $decoded_array = (array) $decoded;
-
-        // $decoded = JWT::decode($jwt, new Key($key, 'HS256')); 
     }
 
     function DecodeJwt(string $jwt)

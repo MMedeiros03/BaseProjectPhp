@@ -24,7 +24,7 @@ class ResourceRepository
         return $result;
     }
 
-    public function Save(array $data = [])
+    public function Save($data = [])
     {
         try {
             $connection = new EntityManagerFactory();
