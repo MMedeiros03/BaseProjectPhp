@@ -43,7 +43,7 @@ $app->delete("/role/delete/{id}", [new Nbwdigital\BaseProject\Controller\RoleCon
 $app->put("/role/update/{id}", [new Nbwdigital\BaseProject\Controller\RoleController, 'UpdateRole']);
 
 // Role Permission
-$app->get("/rolePermissions", [new Nbwdigital\BaseProject\Controller\RolePermissionController, '', 'GetAllRolePermissions']);
+$app->get("/rolePermissions", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'GetAllRolePermissions']);
 $app->post("/rolePermission/save", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'SaveRolePermission']);
 $app->get("/rolePermission/{id}", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'GetRolePermission']);
 $app->delete("/rolePermission/delete/{id}", [new Nbwdigital\BaseProject\Controller\RolePermissionController, 'DeleteRolePermission']);
